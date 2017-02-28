@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<fieldset style="height: auto; margin-left: auto; margin-right: auto; width: auto;">
 	<head>
-		<h1 style="text-align: left;">Formulario de ingreso</h1><hr/>
+		<meta charset="utf-8">
+		<title>Formulario de ingreso</title>
 	</head>
 	<body>
+		<fieldset style="height: auto; margin-left: auto; margin-right: auto; width: auto;">
+		<h1 style="text-align: left;">Formulario de ingreso</h1><hr/>
 		<form id="contact-form" action="script.php" method="post">
 			<ul>
 				<li><label for="nombre">Nombre:</label> <input id="nombre" name="nombre" type="text" value="" required="" /></li>
-				Campo requerido
 			</ul>
-			<p>&nbsp;</p>
 			<ul>
 				<li><label for="apellido">Apellido:</label> <input id="apellido" name="apellido" type="text" value="" required="" /></li>
-				Campo requerido
 			</ul>
-			<p>&nbsp;</p>
 			<ul>
 				<li><label for="email">Email:</label> <input id="email" name="email" type="text" value="" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required="" /></li>
-				Ingresar un e-mail válido (ejemplo@abc.com)
 			</ul>
 			<p>&nbsp;</p>
 			<ul>
@@ -44,6 +41,7 @@
 			<p>&nbsp;</p>
 			<p style="text-align: center; size: 54"><input type="reset" value="Borrar"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="submit" value="Enviar"/> </p>
 		</form>
+		</fieldset>
 	</body>
-	</fieldset>
+	
 </html>
