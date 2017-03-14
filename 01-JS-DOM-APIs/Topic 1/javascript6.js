@@ -1,11 +1,23 @@
-function setTrue(){
+function hide(){
 	document.getElementById('test').hidden = true;
 };
 
-function hide(){
-    document.getElementById('test').hidden = false;
-	setTimeout("setTrue()",3000);
-};
+  function callback(data) {
+            console.log(data);
+            var joke = getJoke(data);
+}
+
+function getJoke(data) {
+    var obj = JSON.parse(data); 
+    let i, j, x= "";
+    x +="<ol>"
+    for(i in obj.items) {
+      x += "<li>" + obj.items[i].full_name + "</li>";
+
+    }
+    x +="</ol>"
+   document.getElementById("joke").innerHTML = x;
+}
 
 function loadXMLDoc() {
   var xmlhttp;
@@ -18,20 +30,16 @@ function loadXMLDoc() {
 
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      callback(xmlhttp.responseText);
+      callback(xmlhttp.response);
+    
+    }
+    else{
+      console.log('Error');
     }
   };
 
-  function callback(respString) {
-            var joke = getJoke(respString);
-            var quoteList = document.getElementById("joke").innerHTML = joke;
-}
+ 
 
-function getJoke(respString) {
-    var obj = JSON.parse(respString);
-    return obj.value.joke;
-}
-
-  xmlhttp.open("GET", "http://api.icndb.com/jokes/random", true);
+  xmlhttp.open("GET", "https://api.github.com/search/repositories?q=netbeast+language:javascript", true);
   xmlhttp.send();
 };
