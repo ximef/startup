@@ -64,3 +64,13 @@ button{
   margin-left: 40%;
 }
 
+.data{
+    font: normal 18px/20px "Helvetica Neue", Helvetica, sans-serif; 
+    color: black;
+}
+
+.error{
+  font: normal 18px/20px "Helvetica Neue", Helvetica, sans-serif;
+   color: red;
+}
+

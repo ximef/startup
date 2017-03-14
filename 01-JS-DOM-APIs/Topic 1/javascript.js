@@ -1,10 +1,5 @@
-function setTrue(){
-	document.getElementById('test').hidden = true;
-}
-
 function hide(){
-    document.getElementById('test').hidden = false;
-	setTimeout("setTrue()",3000);
+	document.getElementById('test').hidden = true;
 }
 
 function getData(){
@@ -38,8 +33,7 @@ function getData(){
     document.getElementById('joke').innerHTML = JSON.parse(data).value.joke;
   }, function(error){
     console.log('Promise rejected.');
-    console.log(error.message);
-    document.getElementById("joke").innerHTML = "Error";
+    document.getElementById("error").innerHTML = "Error";
   });
 
 }
