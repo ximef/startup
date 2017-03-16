@@ -19,8 +19,17 @@
 			</article>
 	    </div>
 	    <div>
-			<button id="boton" type="button" onclick="loadXMLDoc()">Joke</button>
+	    	<input type="url" name="url" id="text" size="70">
+	    	<p></p>
+	    	<button id="boton" type="button" onclick="loadXMLDoc()">OK</button>
 		    <p id="joke"></p>
+		    <div class="tabla">
+		    	<p></p>
+		    	<input type="text" size="20">
+		    	<button type="button" onclick="genera_tabla()">
+		    	Genera Tabla</button>
+		    	<p></p>
+		    </div>
 		</div>
 		<script>
 		    hide();

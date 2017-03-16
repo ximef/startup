@@ -19,27 +19,77 @@ function getJoke(data) {
    document.getElementById("joke").innerHTML = x;
 }
 
+function clear(){
+      document.getElementById("joke").innerHTML = "";
+      document.getElementById("error").innerHTML = "";
+}
+
+
 function loadXMLDoc() {
-  var xmlhttp;
-  if (window.XMLHttpRequest) {
-    xmlhttp = new XMLHttpRequest();
-  } else {
-    // code for older browsers
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
+  url = document.getElementById("text").value;
 
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      callback(xmlhttp.response);
-    
-    }
-    else{
-      console.log('Error');
-    }
-  };
+      var xmlhttp;
+      if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          // code for older browsers
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
 
- 
+      clear();
+      
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          callback(xmlhttp.response);
 
-  xmlhttp.open("GET", "https://api.github.com/search/repositories?q=netbeast+language:javascript", true);
-  xmlhttp.send();
+        }
+        else{
+          console.log('Request error');
+        }
+      };
+
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+
+  
+  
 };
+
+function genera_tabla() {
+
+  var str = document.getElementById("matriz").value;
+  var res = str.split(" ");
+
+  // Obtener la referencia del elemento body
+  var body = document.getElementsByClassName("tabla")[0];
+ 
+  // Crea un elemento <table> y un elemento <tbody>
+  var tabla   = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+ 
+  // Crea las celdas
+  for (var i = 0; i < 2; i++) {
+    // Crea las hileras de la tabla
+    var hilera = document.createElement("tr");
+ 
+    for (var j = 0; j < 2; j++) {
+      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      // texto sea el contenido de <td>, ubica el elemento <td> al final
+      // de la hilera de la tabla
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+      celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
+    }
+ 
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(hilera);
+  }
+ 
+  // posiciona el <tbody> debajo del elemento <table>
+  tabla.appendChild(tblBody);
+  // appends <table> into <body>
+  body.appendChild(tabla);
+  // modifica el atributo "border" de la tabla y lo fija a "2";
+  tabla.setAttribute("border", "2");
+}
